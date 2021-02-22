@@ -1,0 +1,48 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "echoCommand": true,
+    "tasks": [
+        {
+            "label": "build Linux",
+            "command": "nvcc",
+            "args": ["transitorio.cu", "-g", "-o", "transitorio.out", "-lglut", "-lGLU", "-lGL", "-lm", "-D LINUX", "-Xcompiler", "-fopenmp", "-lgomp"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "build Windows",
+            "command": "nvcc",
+            "args": ["transitorio.cu", "getopt.c", "-g", "-o", "transitorio.exe","-Xcompiler", "-openmp" ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "run Linux single_core",
+            "command": "./transitorio.out",
+            "args": ["-v", "-e", "entrada.dat", "-m 0"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "run Windows single_core",
+            "command": "./transitorio.exe",
+            "args": ["-v", "-e", "entrada.dat", "-m 0"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}
