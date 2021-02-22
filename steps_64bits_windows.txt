@@ -1,0 +1,15 @@
+Add PATH:
+//C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx64\x64
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build
+//C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\include
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\include
+//C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.2\lib\x64
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.1\lib\x64
+
+cd c:\Projetos\TCC_2020\Mestrados
+cd C:\Dados\Projetos\TCC_2020\Mestrados
+vcvarsall.bat amd64
+code .
+
+nvcc transitorio.cu getopt.c -o transitorio.exe -Xcompiler -openmp
